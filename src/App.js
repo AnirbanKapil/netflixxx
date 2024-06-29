@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+
 
 function App() {
   return (
    <>
-   <h1>Hello Netflix</h1>
+   <h1 className="bg-black text-white font-semibold">Hello Netflix</h1>
    </>
   );
 }
