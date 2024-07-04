@@ -75,7 +75,7 @@ function Login() {
           ref={password} 
           type='password' placeholder='Password' 
           className='p-2 m-2 w-[300px] bg-gray-700'/>
-          <p className='m-2 text-red-800 font-semibold'>{`${"* "}${errorMsg}`}</p>
+          <p className='m-2 text-red-800 font-semibold'>{`${errorMsg}`}</p>
           <button className='p-3 m-2 mb-6 bg-red-700 text-white rounded-lg w-[300px]' 
           onClick={handleButtonClick}>
             {isSignInForm ? "Sign In" : "Sign Up"}</button>
