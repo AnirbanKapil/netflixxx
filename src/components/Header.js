@@ -2,12 +2,14 @@ import React from 'react'
 import { signOut } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 function Header() {
 
   const navigate = useNavigate()
-
+  
+  const user = useSelector((store)=> store.user)
 
   const handleSignOut = () => {
     signOut(auth).then(() => {
@@ -25,7 +27,7 @@ function Header() {
          alt='icon' 
          src='https://myflix-platform.vercel.app/assets/myflix-logo.png' />
          </div>
-         <div className='flex'>
+         {user && <div className='flex'>
          <img
          className='w-7 h-7 mt-4'
          alt='user-icon' 
@@ -35,7 +37,7 @@ function Header() {
           onClick={handleSignOut} 
           className='p-2 m-2 font-semibold'>
             Sign Out</button>
-         </div>
+         </div>}
         
     </div>
   )

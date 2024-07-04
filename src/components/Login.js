@@ -4,6 +4,7 @@ import { checkValidateData } from '../utils/validate'
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
+import { updateProfile } from "firebase/auth";
 
 
 function Login() {
@@ -12,7 +13,8 @@ function Login() {
   const [errorMsg,setErrorMsg] = useState(null);
 
   const navigate = useNavigate();
-
+  
+  const name = useRef(null)
   const email = useRef(null);
   const password = useRef(null);
 
@@ -26,8 +28,15 @@ function Login() {
       createUserWithEmailAndPassword(auth,email.current.value,password.current.value)
       .then((userCredential) => {
          const user = userCredential.user;
+         updateProfile(user, {
+          displayName: name.current.value,
+        }).then(() => {
+          navigate("/browse")
+        }).catch((error) => {
+          setErrorMsg(error.errorMessage)
+        });
         console.log(user)
-        navigate("/browse")
+       
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -65,7 +74,9 @@ function Login() {
       <div className='bg-black'>
         <form className='absolute w-3/12 mt-56 mx-auto right-0 left-0 text-white bg-opacity-80 bg-black rounded-lg' onSubmit={(e)=> e.preventDefault()}> 
           <h1 className='font-bold text-3xl py-4 m-3'>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
-          {!isSignInForm && <input type='text' placeholder='Full Name' 
+          {!isSignInForm && <input
+          ref={name}
+          type='text' placeholder='Full Name'  
           className='p-2 m-2 w-[300px] bg-gray-700'/>}
           <input 
           ref={email}
