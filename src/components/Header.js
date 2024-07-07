@@ -7,6 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from 'react-redux'
 import { addUser, removeUser } from '../utils/userslice'
 import { useEffect } from 'react';
+import { LOGO } from '../utils/constants';
 
 
 function Header() {
@@ -43,8 +44,8 @@ function Header() {
         <div>
         <img
          className='w-40'
-         alt='icon' 
-         src='https://myflix-platform.vercel.app/assets/myflix-logo.png' />
+         alt='logo' 
+         src={LOGO} />
          </div>
          {user && <div className='flex'>
          <img
