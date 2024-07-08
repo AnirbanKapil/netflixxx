@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from './Header'
 import useMoviesList from '../hooks/useMoviesList'
+import MainContainer from './MainContainer';
+import SecondaryContainer from './SecondaryContainer';
 
 
 function Browse() {
@@ -10,6 +12,8 @@ function Browse() {
   return (
     <div>
       <Header />
+      <MainContainer />
+      <SecondaryContainer />
     </div>
   )
 }
