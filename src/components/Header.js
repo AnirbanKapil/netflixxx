@@ -43,7 +43,7 @@ function Header() {
     <div className='absolute w-screen z-10 px-16 py-6 bg-gradient-to-b from-black flex justify-between'>
         <div>
         <img
-         className='w-40'
+         className='w-24'
          alt='logo' 
          src={LOGO} />
          </div>
