@@ -49,13 +49,13 @@ function Header() {
          </div>
          {user && <div className='flex'>
          <img
-         className='w-7 h-7 mt-4'
+         className='w-7 h-7 mt-1'
          alt='user-icon' 
          src='https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg' 
          />
           <button
           onClick={handleSignOut} 
-          className='p-2 m-2 font-semibold'>
+          className='p-2 mx-2 font-semibold text-white'>
             Sign Out</button>
          </div>}
         
