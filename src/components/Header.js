@@ -48,6 +48,7 @@ function Header() {
          src={LOGO} />
          </div>
          {user && <div className='flex'>
+         <button className='py-2 px-4 mr-4 bg-blue-700 text-white rounded-lg'>GPT Search</button>
          <img
          className='w-7 h-7 mt-1'
          alt='user-icon' 
