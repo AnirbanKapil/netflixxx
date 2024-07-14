@@ -53,6 +53,11 @@ function Header() {
          src={LOGO} />
          </div>
          {user && <div className='flex'>
+          <select className='pr-2 mr-4'>
+            <option value="eng">En</option>
+            <option value="hindi">Hn</option>
+            <option value="spanish">Sp</option>
+          </select>
          <button onClick={handleGptSearchClick}
           className='py-2 px-4 mr-4 bg-blue-700 text-white rounded-lg'>
           GPT Search
