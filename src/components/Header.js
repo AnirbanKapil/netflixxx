@@ -7,8 +7,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from 'react-redux'
 import { addUser, removeUser } from '../utils/userslice'
 import { useEffect } from 'react';
-import { LOGO } from '../utils/constants';
+import { LOGO, SUPPORTED_LANGUAGES } from '../utils/constants';
 import { toggleGptSearchView } from '../utils/gptSlice';
+import { changeLanguage } from '../utils/configslice';
 
 
 function Header() {
@@ -43,6 +44,10 @@ function Header() {
     dispatch(toggleGptSearchView())
   }
 
+  const handleLangChange = (e) => {
+      dispatch(changeLanguage(e.target.value))
+  }
+
 
   return (
     <div className='absolute w-screen z-10 px-16 py-6 bg-gradient-to-b from-black flex justify-between'>
@@ -53,10 +58,9 @@ function Header() {
          src={LOGO} />
          </div>
          {user && <div className='flex'>
-          <select className='pr-2 mr-4'>
-            <option value="eng">En</option>
-            <option value="hindi">Hn</option>
-            <option value="spanish">Sp</option>
+          <select className='pr-2 mr-4 bg-gray-800 text-white' onChange={handleLangChange}>
+            {SUPPORTED_LANGUAGES.map((lang)=>
+                <option key={lang.indentifier} value={lang.indentifier}>{lang.name}</option>)}
           </select>
          <button onClick={handleGptSearchClick}
           className='py-2 px-4 mr-4 bg-blue-700 text-white rounded-lg'>
