@@ -18,6 +18,7 @@ function Header() {
   
   const dispatch = useDispatch();
   const user = useSelector((store)=> store.user)
+  const showGpt = useSelector((store)=> store.gpt.showGptSearch)
 
   const handleSignOut = () => {
     signOut(auth).then(() => {})
@@ -58,13 +59,13 @@ function Header() {
          src={LOGO} />
          </div>
          {user && <div className='flex'>
-          <select className='pr-2 mr-4 bg-gray-800 text-white' onChange={handleLangChange}>
+          {showGpt && <select className='pr-2 mr-4 bg-gray-800 text-white' onChange={handleLangChange}>
             {SUPPORTED_LANGUAGES.map((lang)=>
                 <option key={lang.indentifier} value={lang.indentifier}>{lang.name}</option>)}
-          </select>
+          </select>}
          <button onClick={handleGptSearchClick}
           className='py-2 px-4 mr-4 bg-blue-700 text-white rounded-lg'>
-          GPT Search
+          {showGpt ? "Home  Page" : "GPT Search"}
           </button>
          <img
          className='w-7 h-7 mt-1'
