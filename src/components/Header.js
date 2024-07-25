@@ -65,7 +65,7 @@ function Header() {
           </select>}
          <button onClick={handleGptSearchClick}
           className='py-2 px-4 mr-4 bg-blue-700 text-white rounded-lg'>
-          {showGpt ? "Home  Page" : "GPT Search"}
+          {showGpt ? "Home  Page" : "Search"}
           </button>
          <img
          className='w-7 h-7 mt-1'

@@ -1,7 +1,9 @@
 import React, { useRef } from 'react'
 import lang from '../utils/languageConstants'
 import { useSelector } from 'react-redux'
-import OpenAI from '../utils/openai';
+import { API_OPTIONS } from '../utils/auth'
+
+
 
 function GptSearchBar() {
   
@@ -10,13 +12,14 @@ function GptSearchBar() {
   const searchText = useRef(null);
 
   const handleGptSearchClick = async () => {
-      console.log(searchText)
+      fetchSearchMovie();
+      
+  }
 
-      const gptResult = await OpenAI.chat.completions.create({
-        messages: [{ role: 'user', content: 'Say this is a test' }],
-        model: 'gpt-3.5-turbo',
-      });
-      console.log(gptResult.choices)
+  const fetchSearchMovie = async () => {
+    const data = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchText.current.value}&include_adult=false&language=en-US&page=1`, API_OPTIONS)
+    const json = await data.json();
+    console.log(json.results);
   }
 
   return (
