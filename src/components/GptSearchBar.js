@@ -1,15 +1,14 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef} from 'react'
 import lang from '../utils/languageConstants'
 import { useSelector } from 'react-redux'
 import { API_OPTIONS } from '../utils/auth'
-import GptMoviesSugg from './GptMoviesSugg'
+
 
 
 function GptSearchBar() {
   
   const langKey = useSelector((store)=> store.config.language)
 
-  const [searchMovies,setSearchMovies] = useState([]);
 
   const searchText = useRef(null);
 
@@ -41,13 +40,6 @@ function GptSearchBar() {
             {lang[langKey].search}</button>
         </form>
         </div>
-        </div>
-        <div className='flex flex-wrap'>
-        {searchMovies && searchMovies.map((movie)=> 
-        <GptMoviesSugg key={movie.id} title={movie.original_title} 
-        img={movie.poster_path}
-        release={movie.release_date}  
-        />) }
         </div>
    </>
   )
