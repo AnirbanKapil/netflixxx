@@ -27,7 +27,7 @@ function GptSearchBar() {
 
   return (
     <>
-    <div className='text-center bg-slate-400'>
+    <div className='text-center'>
         <div className='pt-[20%]'>
         <form className='m-8 p-4 pt-16' onSubmit={(e)=> e.preventDefault()}>
           <input

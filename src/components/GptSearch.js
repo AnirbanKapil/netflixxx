@@ -6,7 +6,7 @@ import GptMoviesSugg from './GptMoviesSugg'
 
 function GptSearch() {
   return (
-    <div>
+    <div className='bg-slate-200'>
      <GptSearchBar />
      <GptMoviesSugg />
     </div>
