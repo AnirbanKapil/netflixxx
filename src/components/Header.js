@@ -51,10 +51,11 @@ function Header() {
 
 
   return (
-    <div className='absolute w-screen z-10 px-16 py-6 bg-gradient-to-b from-black flex justify-between'>
+    <div className='absolute w-screen z-10 px-16 py-6 bg-gradient-to-b from-black
+     flex-col md:flex-row flex justify-between'>
         <div>
         <img
-         className='w-24'
+         className='w-24 mx-auto md:mx-0'
          alt='logo' 
          src={LOGO} />
          </div>

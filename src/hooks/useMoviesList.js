@@ -8,7 +8,7 @@ import { addMovies } from '../utils/movieslice'
 const useMoviesList = () => {
 
   const dispatch = useDispatch()
-  const addMovies = useSelector((store)=> store.movies.moviesList)
+  const addMovie = useSelector((store)=> store.movies.moviesList)
 
   const getMovies = async () => {
       const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', API_OPTIONS)
@@ -17,7 +17,7 @@ const useMoviesList = () => {
   }
 
   useEffect(()=>{
-    !addMovies && getMovies();
+    !addMovie && getMovies();
   },[])
 }
 
