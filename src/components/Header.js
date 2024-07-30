@@ -59,7 +59,7 @@ function Header() {
          alt='logo' 
          src={LOGO} />
          </div>
-         {user && <div className='flex'>
+         {user && <div className='flex ml-24 mt-3 sm:ml-[30%] md:m-0'>
           {showGpt && <select className='pr-2 mr-4 bg-gray-800 text-white' onChange={handleLangChange}>
             {SUPPORTED_LANGUAGES.map((lang)=>
                 <option key={lang.indentifier} value={lang.indentifier}>{lang.name}</option>)}
